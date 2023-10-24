@@ -1,6 +1,6 @@
 import { PortableTextBlock } from "sanity";
 
-export type Post = {
+export type Article = {
   _id: string;
   _createdAt: Date;
   titre: string;

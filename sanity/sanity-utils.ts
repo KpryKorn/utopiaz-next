@@ -1,16 +1,18 @@
-import { Post } from "@/types/Post";
+import { Article } from "@/types/Article";
 import { createClient, groq } from "next-sanity";
 import { revalidatePath } from "next/cache";
 
-export async function getPosts(): Promise<Post[]> {
+// Helper function to get all articles
+export async function getArticles(): Promise<Article[]> {
   const client = createClient({
     projectId: "17n9vsyq",
     dataset: "production",
     apiVersion: "2023-10-21",
+    useCdn: true,
   });
-
-  return client.fetch(
-    groq`*[_type == "post"]{
+  try {
+    const articles = await client.fetch(
+      groq`*[_type == "article"]{
         _id,
         _createdAt,
         titre,
@@ -18,6 +20,11 @@ export async function getPosts(): Promise<Post[]> {
         "image": image.asset->url,
         contenu
     }`,
-    revalidatePath("/") // revalidate the home page when a new post is created
-  );
+      revalidatePath("/") // revalidate the data when the page is loaded/refreshed
+    );
+    return articles;
+  } catch (error) {
+    console.error("!! Problèmes lors de la résolution des articles:", error);
+    return [];
+  }
 }

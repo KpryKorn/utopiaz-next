@@ -1,15 +1,15 @@
-import { getPosts } from "@/sanity/sanity-utils";
+import { getArticles } from "@/sanity/sanity-utils";
 
 export default async function Home() {
-  const posts = await getPosts();
+  const articles = await getArticles();
 
   return (
     <div className="flex flex-col gap-4">
-      {posts.map((post) => {
+      {articles.map((article) => {
         return (
-          <div key={post._id}>
-            <h2 className="font-semibold text-xl">{post.titre}</h2>
-            <p>{post.contenu[0].children[0].text}</p>
+          <div key={article._id}>
+            <h2 className="font-semibold text-xl">{article.titre}</h2>
+            <p>{article.contenu[0].children[0].text}</p>
           </div>
         );
       })}

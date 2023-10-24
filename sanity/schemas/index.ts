@@ -1,5 +1,5 @@
-import post from "./post-schema";
+import article from "./article-schema";
 
-const schemas = [post];
+const schemas = [article];
 
 export default schemas;
