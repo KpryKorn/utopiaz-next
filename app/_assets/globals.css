@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body {
+  min-height: 100svh;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+}

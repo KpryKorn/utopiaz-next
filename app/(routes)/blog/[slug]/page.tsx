@@ -22,6 +22,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <div>
       <h1>{article?.titre}</h1>
       <p>{article?.contenu[0].children[0].text}</p>
+      <img src={article?.image} alt={article?.alt} title={article?.alt} />
     </div>
   );
 }
