@@ -15,6 +15,7 @@ export async function getArticles(): Promise<Article[]> {
       groq`*[_type == "article"]{
         _id,
         _createdAt,
+        _updatedAt,
         titre,
         "slug": slug.current,
         "image": image.asset->url,
