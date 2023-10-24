@@ -6,5 +6,6 @@ export type Article = {
   titre: string;
   slug: string;
   image: string;
+  alt: string;
   contenu: PortableTextBlock[];
 };

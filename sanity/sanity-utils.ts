@@ -18,6 +18,7 @@ export async function getArticles(): Promise<Article[]> {
         titre,
         "slug": slug.current,
         "image": image.asset->url,
+        "alt": image.alt,
         contenu
     }`,
       revalidatePath("/") // revalidate the data when the page is loaded/refreshed
