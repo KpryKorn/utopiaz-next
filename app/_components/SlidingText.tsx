@@ -8,13 +8,11 @@ export default function SlidingText(props: { text: string }) {
       >
         {text}{" "}
         <span className="text-indigo-500 inline-flex flex-col h-[calc(theme(fontSize.3xl)*theme(lineHeight.tight))] md:h-[calc(theme(fontSize.4xl)*theme(lineHeight.tight))] overflow-hidden">
-          <ul className="block animate-text-slide-5 text-left leading-tight [&_li]:block">
-            <li>Finance</li>
+          <ul className="block animate-text-slide-3 text-left leading-tight [&_li]:block">
             <li>Tech</li>
             <li>AI</li>
-            <li>Crypto</li>
             <li>eCommerce</li>
-            <li aria-hidden="true">Finance</li>
+            <li aria-hidden="true">Tech</li>
           </ul>
         </span>
       </div>
