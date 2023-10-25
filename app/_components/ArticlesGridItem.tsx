@@ -15,6 +15,13 @@ export default function ArticlesGridItem(props: { article: Article }) {
         className="p-4 flex flex-col justify-between h-full bg-slate-900 relative rounded-lg"
       >
         <div className="z-10">
+          <figure className="pb-2">
+            <img
+              src={article.auteurImg}
+              alt={`Photo de profil de ${article.auteur}`}
+              className="rounded-full w-8 h-8 object-cover object-center"
+            />
+          </figure>
           <h3 className="font-semibold text-lg">{article.titre}</h3>
         </div>
         <figure className="z-10">
