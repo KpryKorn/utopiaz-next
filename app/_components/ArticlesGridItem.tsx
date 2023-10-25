@@ -8,7 +8,7 @@ export default function ArticlesGridItem(props: { article: Article }) {
   return (
     <li
       key={article._id}
-      className="aspect-square md:aspect-[2/3] max-w-full rounded-lg bg-slate-800 hover:bg-slate-700 p-px text-white transition-colors duration-300 ease-out overflow-hidden group"
+      className="aspect-square sm:aspect-[2/3] max-w-full rounded-lg bg-slate-800 hover:bg-slate-700 p-px text-white transition-colors duration-300 ease-out overflow-hidden group"
     >
       <Link
         href={`blog/${article.slug}`}
