@@ -33,7 +33,7 @@ export default function ArticlesGridItem(props: { article: Article }) {
             <Share2 className="stroke-gray-300" />
           </div>
         </figure>
-        <div className="w-[40%] h-[40%] absolute inset-0 m-auto -translate-y-[10%] blur-3xl rounded-full bg-indigo-600 group-hover:bg-blue-600 transition-colors duration-300 ease-out"></div>
+        <div className="w-[40%] h-[40%] absolute inset-0 m-auto -translate-y-[10%] blur-3xl rounded-full bg-indigo-600 group-hover:bg-blue-400 transition-colors duration-300 ease-out"></div>
       </Link>
     </li>
   );
