@@ -38,6 +38,12 @@ const article = {
       ],
     },
     {
+      name: "categories",
+      title: "Catégories",
+      type: "array",
+      of: [{ type: "reference", to: { type: "categorie" } }],
+    },
+    {
       name: "contenu",
       title: "Contenu",
       type: "array",

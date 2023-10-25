@@ -10,5 +10,6 @@ export type Article = {
   auteurImg: string;
   image: string;
   alt: string;
+  categories: string[];
   contenu: PortableTextBlock[];
 };

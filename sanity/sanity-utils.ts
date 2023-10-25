@@ -2,14 +2,15 @@ import { Article } from "@/types/Article";
 import { createClient, groq } from "next-sanity";
 import { revalidatePath } from "next/cache";
 
+const client = createClient({
+  projectId: "17n9vsyq",
+  dataset: "production",
+  apiVersion: "2023-10-21",
+  useCdn: true,
+});
+
 // Helper function to get all articles
 export async function getArticles(): Promise<Article[]> {
-  const client = createClient({
-    projectId: "17n9vsyq",
-    dataset: "production",
-    apiVersion: "2023-10-21",
-    useCdn: true,
-  });
   try {
     const articles = await client.fetch(
       groq`*[_type == "article"] | order(_createdAt desc){
@@ -22,6 +23,7 @@ export async function getArticles(): Promise<Article[]> {
         "auteurImg": auteur->image.asset->url,
         "image": image.asset->url,
         "alt": image.alt,
+        "categories": categories[]->titre,
         contenu
     }`,
       revalidatePath("/") // revalidate the data when the page is loaded/refreshed
