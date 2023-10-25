@@ -9,11 +9,11 @@ export default function ArticlesGridItem(props: { article: Article }) {
   return (
     <li
       key={article._id}
-      className="aspect-square sm:aspect-[2/3] max-w-full rounded-lg bg-slate-800 hover:bg-slate-600 p-px text-white transition-colors duration-300 ease-out overflow-hidden group"
+      className="aspect-square sm:aspect-[2/3] max-w-full rounded-lg bg-slate-800 hover:bg-slate-700 p-px text-white transition-colors duration-300 ease-out overflow-hidden group"
     >
       <Link
         href={`blog/${article.slug}`}
-        className="p-4 flex flex-col justify-between h-full bg-slate-900 relative rounded-lg"
+        className="p-4 flex flex-col justify-between h-full bg-slate-950 relative rounded-lg"
       >
         <div className="z-10">
           <figure className="pb-2 flex justify-between items-center">
