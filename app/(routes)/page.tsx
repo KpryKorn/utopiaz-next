@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <>
-      <SlidingText text="Trusted by the most innovative minds in" />
+      <SlidingText text="La référence des esprits novateurs en" />
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {articles.map((article) => {
           return <ArticlesGridItem article={article} key={article._id} />;
