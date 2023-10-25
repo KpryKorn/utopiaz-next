@@ -18,6 +18,8 @@ export async function getArticles(): Promise<Article[]> {
         _updatedAt,
         titre,
         "slug": slug.current,
+        "auteur": auteur->nom,
+        "auteurImg": auteur->image.asset->url,
         "image": image.asset->url,
         "alt": image.alt,
         contenu

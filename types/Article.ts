@@ -6,6 +6,8 @@ export type Article = {
   _updatedAt: Date;
   titre: string;
   slug: string;
+  auteur: string;
+  auteurImg: string;
   image: string;
   alt: string;
   contenu: PortableTextBlock[];
