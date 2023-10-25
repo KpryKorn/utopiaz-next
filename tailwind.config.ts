@@ -38,7 +38,7 @@ const config: Config = {
           "text-slide-7 17.5s cubic-bezier(0.83, 0, 0.17, 1) infinite",
         "text-slide-8":
           "text-slide-8 20s cubic-bezier(0.83, 0, 0.17, 1) infinite",
-        gradient: "gradient 3s linear infinite",
+        gradient: "gradient 5s linear infinite",
       },
       keyframes: {
         gradient: {
