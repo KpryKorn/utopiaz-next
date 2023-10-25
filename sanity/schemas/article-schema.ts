@@ -17,6 +17,12 @@ const article = {
       },
     },
     {
+      name: "auteur",
+      title: "Auteur",
+      type: "reference",
+      to: { type: "auteur" },
+    },
+    {
       name: "image",
       title: "Image",
       type: "image",
@@ -38,6 +44,14 @@ const article = {
       of: [{ type: "block" }],
     },
   ],
+
+  preview: {
+    select: {
+      title: "titre",
+      author: "auteur.nom",
+      media: "image",
+    },
+  },
 };
 
 export default article;
