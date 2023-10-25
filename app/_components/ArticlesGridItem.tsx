@@ -8,16 +8,16 @@ export default function ArticlesGridItem(props: { article: Article }) {
   return (
     <li
       key={article._id}
-      className="aspect-square md:aspect-[2/3] max-w-full rounded-lg bg-slate-800 p-[2px] text-white shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out overflow-hidden"
+      className="aspect-square md:aspect-[2/3] max-w-full rounded-lg bg-slate-800 hover:bg-slate-600 p-px text-white transition-colors duration-300 ease-out overflow-hidden group"
     >
       <Link
         href={`blog/${article.slug}`}
-        className="p-4 flex flex-col justify-between h-full bg-slate-900 rounded-lg"
+        className="p-4 flex flex-col justify-between h-full bg-slate-900 relative rounded-lg"
       >
-        <div>
+        <div className="z-10">
           <h3 className="font-semibold text-lg">{article.titre}</h3>
         </div>
-        <figure>
+        <figure className="z-10">
           <figcaption className="text-gray-300 text-sm pb-1">
             {formatDate(article._createdAt.toString())} • 5' de lecture
           </figcaption>
@@ -33,6 +33,7 @@ export default function ArticlesGridItem(props: { article: Article }) {
             <Share2 className="stroke-gray-300" />
           </div>
         </figure>
+        <div className="w-[40%] h-[40%] absolute inset-0 m-auto -translate-y-[10%] blur-3xl rounded-full bg-indigo-600 group-hover:bg-blue-600 transition-colors duration-300 ease-out"></div>
       </Link>
     </li>
   );
