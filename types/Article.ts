@@ -6,6 +6,7 @@ export type Article = {
   _updatedAt: Date;
   titre: string;
   slug: string;
+  resume: string;
   auteur: string;
   auteurImg: string;
   image: string;

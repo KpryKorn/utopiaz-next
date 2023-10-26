@@ -17,6 +17,14 @@ const article = {
       },
     },
     {
+      name: "resume",
+      title: "Résumé de l'article",
+      type: "string",
+      options: {
+        maxLength: 200,
+      },
+    },
+    {
       name: "auteur",
       title: "Auteur",
       type: "reference",
