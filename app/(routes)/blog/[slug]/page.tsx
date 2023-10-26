@@ -14,14 +14,35 @@ export async function generateStaticParams() {
   }));
 }
 
-// contenu des articles
+// composant pour indiquer à Sanity comment render les images
+function imageComponent(props: { value: any }) {
+  const { value } = props;
+  console.log("", value);
+
+  return (
+    <figure>
+      <img
+        src={`https://cdn.sanity.io/images/17n9vsyq/production/${value.asset._ref
+          .replace(/^image-/, "")
+          .replace(/-jpg$/, ".jpg")
+          .replace(/-png$/, ".png")
+          .replace(/-gif$/, ".gif")
+          .replace(/-webp$/, ".webp")
+          .replace(/-svg$/, ".svg")}`}
+        alt={value.alt}
+        loading="lazy"
+      />
+    </figure>
+  );
+}
+
 export default async function Page({ params }: { params: { slug: string } }) {
   const articles = await getArticles();
   const { slug } = params;
   const article = articles.find((article) => article.slug === slug);
 
   return (
-    <article className="flex flex-col gap-6 items-start">
+    <article className="flex flex-col gap-6 lg:gap-12 items-start">
       <div className="flex flex-col lg:flex-row gap-4">
         <div className="flex flex-col lg:flex-1 items-start gap-4">
           <h1 className="font-semibold text-3xl md:text-4xl">
@@ -57,7 +78,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </figure>
       </div>
       <div className="flex flex-col gap-4">
-        <PortableText value={article?.contenu} />
+        <PortableText
+          value={article?.contenu}
+          components={{
+            types: {
+              image: imageComponent,
+            },
+          }}
+        />
       </div>
     </article>
   );
