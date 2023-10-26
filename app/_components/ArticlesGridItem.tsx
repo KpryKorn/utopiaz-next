@@ -29,7 +29,7 @@ export default function ArticlesGridItem(props: { article: Article }) {
           <h3 className="font-semibold text-lg">{article.titre}</h3>
         </div>
         <figure className="z-10">
-          <figcaption className="text-gray-300 text-sm pb-1">
+          <figcaption className="text-gray-400 text-sm pb-1">
             {formatDate(article._createdAt.toString())} • 5' de lecture
           </figcaption>
           <img
@@ -39,9 +39,9 @@ export default function ArticlesGridItem(props: { article: Article }) {
             className="rounded-lg aspect-[3/2] object-cover object-center"
           />
           <div className="flex justify-between items-center pt-4">
-            <Heart className="stroke-gray-300" />
-            <MessageSquare className="stroke-gray-300" />
-            <Share2 className="stroke-gray-300" />
+            <Heart className="stroke-gray-400" />
+            <MessageSquare className="stroke-gray-400" />
+            <Share2 className="stroke-gray-400" />
           </div>
         </figure>
         <div className="w-[40%] h-[40%] absolute inset-0 m-auto -translate-y-[10%] blur-3xl rounded-full bg-indigo-600 group-hover:bg-blue-400 transition-colors duration-300 ease-out"></div>
