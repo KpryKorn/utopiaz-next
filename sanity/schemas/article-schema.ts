@@ -7,6 +7,7 @@ const article = {
       name: "titre",
       title: "Titre",
       type: "string",
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: "slug",
@@ -15,14 +16,13 @@ const article = {
       options: {
         source: "titre",
       },
+      validation: (Rule: any) => Rule.required(),
     },
     {
       name: "resume",
       title: "Résumé de l'article",
-      type: "string",
-      options: {
-        maxLength: 200,
-      },
+      type: "text",
+      validation: (Rule: any) => Rule.required().min(50).max(150),
     },
     {
       name: "auteur",
@@ -56,6 +56,7 @@ const article = {
       title: "Contenu",
       type: "array",
       of: [{ type: "block" }],
+      validation: (Rule: any) => Rule.required(),
     },
   ],
 
