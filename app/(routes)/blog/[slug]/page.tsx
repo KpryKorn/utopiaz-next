@@ -20,21 +20,40 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const article = articles.find((article) => article.slug === slug);
 
   return (
-    <article className="flex flex-col gap-6 items-center">
-      <figure className="flex items-center justify-center">
-        <img
-          src={article?.image}
-          alt={article?.alt}
-          title={article?.alt}
-          className="block rounded-xl shadow-md w-2/3 aspect-video object-cover object-center"
-        />
-      </figure>
-      <h1 className="font-semibold text-2xl md:text-3xl bg-gradient-to-l from-purple-600 to-blue-500 text-transparent bg-clip-text">
-        {article?.titre}
-      </h1>
-      <div className="flex flex-col text-center text-sm text-gray-600">
-        <p>Article créé le : {formatDate(article!._createdAt.toString())}</p>
-        <p>Mis à jour le : {formatDate(article!._updatedAt.toString())}</p>
+    <article className="flex flex-col gap-6 items-start">
+      <div className="flex flex-col lg:flex-row gap-4">
+        <div className="flex flex-col lg:flex-1 items-start gap-4">
+          <h1 className="font-semibold text-3xl md:text-4xl">
+            {article?.titre}
+          </h1>
+
+          <figure className="flex gap-2 justify-between items-center">
+            <img
+              src={article?.auteurImg}
+              alt={`Photo de profil de ${article?.auteur}`}
+              className="rounded-full border-2 border-purple-500 w-8 h-8 object-cover object-center"
+            />
+            <figcaption className="text-sm font-medium text-purple-500">
+              {article?.auteur}
+            </figcaption>
+          </figure>
+
+          <div className="flex flex-col text-sm text-gray-400">
+            <p>Créé le : {formatDate(article!._createdAt.toString())}</p>
+            <p>Mis à jour le : {formatDate(article!._updatedAt.toString())}</p>
+          </div>
+
+          <p className="mr-4">{article?.resume}</p>
+        </div>
+
+        <figure className="flex lg:flex-1 items-center justify-end">
+          <img
+            src={article?.image}
+            alt={article?.alt}
+            title={article?.alt}
+            className="block rounded-xl shadow-md aspect-video object-cover object-center"
+          />
+        </figure>
       </div>
       <p>{article?.contenu[0].children[0].text}</p>
     </article>
