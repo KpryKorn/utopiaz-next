@@ -18,6 +18,9 @@ const config: Config = {
       },
     },
     extend: {
+      colors: {
+        "gray-400": "#B3B8C2",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
