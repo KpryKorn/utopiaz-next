@@ -55,7 +55,7 @@ const article = {
       name: "contenu",
       title: "Contenu",
       type: "array",
-      of: [{ type: "block" }],
+      of: [{ type: "block" }, { type: "image" }],
       validation: (Rule: any) => Rule.required(),
     },
   ],
