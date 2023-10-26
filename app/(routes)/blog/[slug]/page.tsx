@@ -1,5 +1,6 @@
 import { getArticles } from "@/sanity/sanity-utils";
 import { formatDate } from "@/app/_lib/utils";
+import { PortableText } from "@portabletext/react";
 
 // renvoie 404 si article n'existe pas
 export const dynamicParams = false;
@@ -55,7 +56,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
           />
         </figure>
       </div>
-      <p>{article?.contenu[0].children[0].text}</p>
+      <div className="flex flex-col gap-4">
+        <PortableText value={article?.contenu} />
+      </div>
     </article>
   );
 }
