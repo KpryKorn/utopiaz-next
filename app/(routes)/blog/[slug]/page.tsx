@@ -17,10 +17,9 @@ export async function generateStaticParams() {
 // composant pour indiquer à Sanity comment render les images
 function imageComponent(props: { value: any }) {
   const { value } = props;
-  console.log("", value);
 
   return (
-    <figure>
+    <figure className="flex justify-center my-4">
       <img
         src={`https://cdn.sanity.io/images/17n9vsyq/production/${value.asset._ref
           .replace(/^image-/, "")
@@ -29,8 +28,9 @@ function imageComponent(props: { value: any }) {
           .replace(/-gif$/, ".gif")
           .replace(/-webp$/, ".webp")
           .replace(/-svg$/, ".svg")}`}
-        alt={value.alt}
+        alt={""}
         loading="lazy"
+        className="block rounded-xl aspect-video object-cover object-center"
       />
     </figure>
   );
