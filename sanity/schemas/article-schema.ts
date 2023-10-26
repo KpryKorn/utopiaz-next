@@ -7,7 +7,7 @@ const article = {
       name: "titre",
       title: "Titre",
       type: "string",
-      validation: (Rule: any) => Rule.required(),
+      validation: (Rule: any) => Rule.required().max(60),
     },
     {
       name: "slug",
