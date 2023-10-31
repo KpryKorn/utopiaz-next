@@ -22,6 +22,7 @@ const article = {
       name: "resume",
       title: "Résumé de l'article",
       type: "text",
+      rows: 3,
       validation: (Rule: any) => Rule.required().min(50).max(150),
     },
     {
