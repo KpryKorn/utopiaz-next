@@ -77,7 +77,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           />
         </figure>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 sanity-container">
         <PortableText
           value={article?.contenu}
           components={{
