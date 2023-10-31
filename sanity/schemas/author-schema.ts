@@ -1,6 +1,6 @@
 const auteur = {
   name: "auteur",
-  title: "Auteurs",
+  title: "👨‍💻 Auteurs",
   type: "document",
   fields: [
     {

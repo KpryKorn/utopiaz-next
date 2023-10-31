@@ -1,6 +1,6 @@
 const categorie = {
   name: "categorie",
-  title: "Catégories",
+  title: "📁 Catégories",
   type: "document",
   fields: [
     {

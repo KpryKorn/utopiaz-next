@@ -1,6 +1,6 @@
 const article = {
   name: "article",
-  title: "Articles",
+  title: "📄 Articles",
   type: "document",
   fields: [
     {
