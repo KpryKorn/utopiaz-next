@@ -2,11 +2,23 @@ const article = {
   name: "article",
   title: "📄 Articles",
   type: "document",
+  groups: [
+    {
+      name: "default",
+      title: "Default",
+      default: true,
+    },
+    {
+      name: "autres",
+      title: "Autres",
+    },
+  ],
   fields: [
     {
       name: "titre",
       title: "Titre",
       type: "string",
+      group: "default",
       validation: (Rule: any) => Rule.required().max(60),
     },
     {
@@ -16,12 +28,14 @@ const article = {
       options: {
         source: "titre",
       },
+      group: "default",
       validation: (Rule: any) => Rule.required(),
     },
     {
       name: "resume",
       title: "Résumé de l'article",
       type: "text",
+      group: "default",
       rows: 3,
       validation: (Rule: any) => Rule.required().min(50).max(150),
     },
@@ -29,12 +43,14 @@ const article = {
       name: "auteur",
       title: "Auteur",
       type: "reference",
+      group: "autres",
       to: { type: "auteur" },
     },
     {
       name: "image",
       title: "Image",
       type: "image",
+      group: "autres",
       options: {
         hotspot: true,
       },
@@ -49,6 +65,7 @@ const article = {
     {
       name: "categories",
       title: "Catégories",
+      group: "autres",
       type: "array",
       of: [{ type: "reference", to: { type: "categorie" } }],
     },
@@ -69,6 +86,7 @@ const article = {
           ],
         },
       ],
+      group: "default",
       validation: (Rule: any) => Rule.required(),
     },
   ],
