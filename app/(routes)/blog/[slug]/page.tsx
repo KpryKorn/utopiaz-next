@@ -1,6 +1,7 @@
 import { getArticles } from "@/sanity/sanity-utils";
 import { formatDate } from "@/app/_lib/utils";
 import { PortableText } from "@portabletext/react";
+import Image from "next/image";
 
 // renvoie 404 si article n'existe pas
 export const dynamicParams = false;
@@ -20,7 +21,7 @@ function imageComponent(props: { value: any }) {
 
   return (
     <figure className="flex flex-col justify-center items-center my-4 gap-4">
-      <img
+      <Image
         src={`https://cdn.sanity.io/images/17n9vsyq/production/${value.asset._ref
           .replace(/^image-/, "")
           .replace(/-jpg$/, ".jpg")
@@ -29,7 +30,8 @@ function imageComponent(props: { value: any }) {
           .replace(/-webp$/, ".webp")
           .replace(/-svg$/, ".svg")}`}
         alt={value.alt}
-        loading="lazy"
+        width={1000}
+        height={1000}
         className="block rounded-xl aspect-video object-cover object-center w-3/4 lg:w-2/3"
       />
       <figcaption className="text-sm text-gray-400">{value.alt}</figcaption>
@@ -51,8 +53,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </h1>
 
           <figure className="flex gap-2 justify-between items-center">
-            <img
+            <Image
               src={article?.auteurImg}
+              width={300}
+              height={300}
               alt={`Photo de profil de ${article?.auteur}`}
               className="rounded-full border-2 border-purple-500 w-8 h-8 object-cover object-center"
             />
@@ -70,9 +74,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
 
         <figure className="flex lg:flex-1 items-center justify-end">
-          <img
+          <Image
             src={article?.image}
             alt={article?.alt}
+            width={1500}
+            height={1500}
             title={article?.alt}
             className="block rounded-xl shadow-md aspect-video object-cover object-center"
           />
