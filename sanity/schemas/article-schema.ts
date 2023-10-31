@@ -56,7 +56,19 @@ const article = {
       name: "contenu",
       title: "Contenu",
       type: "array",
-      of: [{ type: "block" }, { type: "image" }],
+      of: [
+        { type: "block" },
+        {
+          type: "image",
+          fields: [
+            {
+              name: "alt",
+              title: "Alt",
+              type: "string",
+            },
+          ],
+        },
+      ],
       validation: (Rule: any) => Rule.required(),
     },
   ],
