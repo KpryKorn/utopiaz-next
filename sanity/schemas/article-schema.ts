@@ -4,13 +4,13 @@ const article = {
   type: "document",
   groups: [
     {
-      name: "default",
-      title: "Default",
+      name: "champsText",
+      title: "Champs de texte",
       default: true,
     },
     {
-      name: "autres",
-      title: "Autres",
+      name: "details",
+      title: "Détails",
     },
   ],
   fields: [
@@ -18,7 +18,7 @@ const article = {
       name: "titre",
       title: "Titre",
       type: "string",
-      group: "default",
+      group: "champsText",
       validation: (Rule: any) => Rule.required().max(60),
     },
     {
@@ -28,14 +28,14 @@ const article = {
       options: {
         source: "titre",
       },
-      group: "default",
+      group: "champsText",
       validation: (Rule: any) => Rule.required(),
     },
     {
       name: "resume",
       title: "Résumé de l'article",
       type: "text",
-      group: "default",
+      group: "champsText",
       rows: 3,
       validation: (Rule: any) => Rule.required().min(50).max(150),
     },
@@ -43,14 +43,14 @@ const article = {
       name: "auteur",
       title: "Auteur",
       type: "reference",
-      group: "autres",
+      group: "details",
       to: { type: "auteur" },
     },
     {
       name: "image",
       title: "Image",
       type: "image",
-      group: "autres",
+      group: "details",
       options: {
         hotspot: true,
       },
@@ -65,7 +65,7 @@ const article = {
     {
       name: "categories",
       title: "Catégories",
-      group: "autres",
+      group: "details",
       type: "array",
       of: [{ type: "reference", to: { type: "categorie" } }],
     },
@@ -86,7 +86,7 @@ const article = {
           ],
         },
       ],
-      group: "default",
+      group: "champsText",
       validation: (Rule: any) => Rule.required(),
     },
   ],
