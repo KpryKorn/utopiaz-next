@@ -12,6 +12,18 @@ const config = defineConfig({
   schema: {
     types: schemas,
   },
+  form: {
+    components: {
+      input: (props) => {
+        if (Array.isArray(props.groups) && props.groups.length > 0) {
+          if (props.groups[0].name === "all-fields") {
+            props.groups.shift();
+          }
+        }
+        return props.renderDefault(props);
+      },
+    },
+  },
 });
 
 export default config;
