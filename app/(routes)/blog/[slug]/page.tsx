@@ -4,6 +4,7 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { Metadata } from "next";
 import AutresArticles from "@/app/_components/AutresArticles";
+import FilAriane from "@/app/_components/FilAriane";
 
 // renvoie 404 si article n'existe pas
 export const dynamicParams = false;
@@ -63,6 +64,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <FilAriane homeElement={"Accueil"} separator={<span> / </span>} />
       <article className="flex flex-col gap-6 lg:gap-12 items-start">
         <div className="flex flex-col lg:flex-row gap-4">
           <div className="flex flex-col lg:flex-1 items-start gap-4">
