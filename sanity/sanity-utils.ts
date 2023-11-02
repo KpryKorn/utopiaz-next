@@ -35,3 +35,29 @@ export async function getArticles(): Promise<Article[]> {
     return [];
   }
 }
+
+export async function getLastArticles(): Promise<Article[]> {
+  try {
+    const articles = await client.fetch(
+      groq`*[_type == "article"] | order(_createdAt desc)[0..3]{
+        _id,
+        _createdAt,
+        _updatedAt,
+        titre,
+        "slug": slug.current,
+        resume,
+        "auteur": auteur->nom,
+        "auteurImg": auteur->image.asset->url,
+        "image": image.asset->url,
+        "alt": image.alt,
+        "categories": categories[]->titre,
+        contenu
+    }`,
+      revalidatePath("/") // revalidate the data when the page is loaded/refreshed
+    );
+    return articles;
+  } catch (error) {
+    console.error("!! Problèmes lors de la résolution des articles:", error);
+    return [];
+  }
+}
