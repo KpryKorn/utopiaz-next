@@ -12,7 +12,7 @@ export default function ArticlesGridItem(props: { article: Article }) {
       className="aspect-square sm:aspect-[2/3] max-w-full rounded-lg bg-slate-800 hover:bg-slate-700 p-px text-white transition-colors duration-300 ease-out overflow-hidden group"
     >
       <Link
-        href={`blog/${article.slug}`}
+        href={`/blog/${article.slug}`}
         className="p-4 flex flex-col justify-between h-full bg-slate-950 relative rounded-lg"
       >
         <div className="z-10">
