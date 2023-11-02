@@ -77,6 +77,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <Image
             src={article?.image}
             alt={article?.alt}
+            loading="eager"
             width={1500}
             height={1500}
             title={article?.alt}
