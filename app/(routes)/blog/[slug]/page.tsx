@@ -2,6 +2,7 @@ import { getArticles } from "@/sanity/sanity-utils";
 import { formatDate } from "@/app/_lib/utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import { Metadata } from "next";
 
 // renvoie 404 si article n'existe pas
 export const dynamicParams = false;
@@ -13,6 +14,21 @@ export async function generateStaticParams() {
   return articles.map((article) => ({
     slug: article.slug,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const articles = await getArticles();
+  const { slug } = params;
+  const article = articles.find((article) => article.slug === slug);
+
+  return {
+    title: `Utopiaz - ${article?.titre}`,
+    description: article?.resume,
+  };
 }
 
 // composant pour indiquer à Sanity comment render les images
