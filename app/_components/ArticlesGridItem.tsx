@@ -1,6 +1,7 @@
 import { Article } from "@/types/Article";
 import { formatDate } from "@/app/_lib/utils";
 import Link from "next/link";
+import Image from "next/image";
 import { Heart, MessageSquare, Share2 } from "lucide-react";
 import CategoryPill from "./CategoryPill";
 
@@ -17,8 +18,11 @@ export default function ArticlesGridItem(props: { article: Article }) {
       >
         <div className="z-10">
           <figure className="pb-2 flex justify-between items-center">
-            <img
+            <Image
               src={article.auteurImg}
+              width={300}
+              height={300}
+              loading="eager"
               alt={`Photo de profil de ${article.auteur}`}
               className="rounded-full w-8 h-8 object-cover object-center"
             />
@@ -32,8 +36,11 @@ export default function ArticlesGridItem(props: { article: Article }) {
           <figcaption className="text-gray-400 text-sm pb-1">
             {formatDate(article._createdAt.toString())} • 5' de lecture
           </figcaption>
-          <img
+          <Image
             src={article.image}
+            width={1000}
+            height={1000}
+            loading="eager"
             alt={article.alt}
             title={article.alt}
             className="rounded-lg aspect-[3/2] object-cover object-center"
