@@ -1,13 +1,15 @@
+"use client";
+
 // TODO: chargement de la page => récupérer les catégories (fetch)
 // TODO: par défaut : "tous" coché => montre tous les articles
 // TODO: au clic sur une catégorie => montre les articles de cette catégorie
-// TODO: "checked" => bg-slate-900
+// FIX: bg checked pas au run time
 
 export default function CategoryNavbar() {
   return (
-    <nav>
-      <ul className="flex items-center justify-center gap-2">
-        <li className="flex items-center justify-center px-3 py-2 border border-slate-700 bg-slate-900 rounded-full cursor-pointer">
+    <nav className="my-6 md-my-12">
+      <ul className="flex items-center justify-center gap-2 text-sm">
+        <li className="radio-label flex items-center justify-center border border-slate-700 rounded-full cursor-pointer">
           <input
             type="radio"
             name="category"
@@ -16,44 +18,56 @@ export default function CategoryNavbar() {
             defaultChecked
             className="hidden"
           />
-          <label className="cursor-pointer" htmlFor="all">
+          <label
+            className="cursor-pointer px-4 py-2 rounded-full"
+            htmlFor="all"
+          >
             Tous
           </label>
         </li>
-        <li className="flex items-center justify-center px-3 py-2 border border-slate-700 rounded-full cursor-pointer">
+        <li className="radio-label flex items-center justify-center border border-slate-700 rounded-full cursor-pointer">
           <input
             type="radio"
             name="category"
-            value="react"
-            id="react"
+            value="frontend"
+            id="frontend"
             className="hidden"
           />
-          <label className="cursor-pointer" htmlFor="react">
-            React
+          <label
+            className="cursor-pointer px-4 py-2 rounded-full"
+            htmlFor="frontend"
+          >
+            Frontend
           </label>
         </li>
-        <li className="flex items-center justify-center px-3 py-2 border border-slate-700 rounded-full cursor-pointer">
+        <li className="radio-label flex items-center justify-center border border-slate-700 rounded-full cursor-pointer">
           <input
             type="radio"
             name="category"
-            value="angular"
-            id="angular"
+            value="backend"
+            id="backend"
             className="hidden"
           />
-          <label className="cursor-pointer" htmlFor="angular">
-            Angular
+          <label
+            className="cursor-pointer px-4 py-2 rounded-full"
+            htmlFor="backend"
+          >
+            Backend
           </label>
         </li>
-        <li className="flex items-center justify-center px-3 py-2 border border-slate-700 rounded-full cursor-pointer">
+        <li className="radio-label flex items-center justify-center border border-slate-700 rounded-full cursor-pointer">
           <input
             type="radio"
             name="category"
-            value="vue"
-            id="vue"
+            value="web"
+            id="web"
             className="hidden"
           />
-          <label className="cursor-pointer" htmlFor="vue">
-            Vue
+          <label
+            className="cursor-pointer px-4 py-2 rounded-full"
+            htmlFor="web"
+          >
+            Web
           </label>
         </li>
       </ul>
