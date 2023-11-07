@@ -1,10 +1,14 @@
-"use client";
-
 // TODO: chargement de la page => récupérer les catégories (fetch)
 // TODO: par défaut : "tous" coché => montre tous les articles
 // TODO: au clic sur une catégorie => montre les articles de cette catégorie
 
-export default function CategoryNavbar() {
+import { getArticles, getCategories } from "@/sanity/sanity-utils";
+
+export default async function CategoryNavbar() {
+  const categories = await getCategories();
+  const articleCategories = await getArticles();
+  console.log(categories);
+
   return (
     <nav className="my-6 md-my-12 py-4 border-t border-b border-gray-400">
       <ul className="flex items-center justify-center gap-2 text-sm">
