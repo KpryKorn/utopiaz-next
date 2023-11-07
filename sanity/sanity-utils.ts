@@ -61,3 +61,17 @@ export async function getLastArticles(): Promise<Article[]> {
     return [];
   }
 }
+
+export async function getCategories(): Promise<Article[]> {
+  try {
+    const categories = await client.fetch(
+      groq`*[_type == "categorie"] | order(_createdAt desc){
+        "categories": titre,
+      }`
+    );
+    return categories;
+  } catch (error) {
+    console.error("!! Problèmes lors de la résolution des articles:", error);
+    return [];
+  }
+}
