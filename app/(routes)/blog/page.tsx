@@ -6,9 +6,9 @@ export default async function Page() {
     <>
       <CategoryNavbar />
       <section className="my-6 md:my-12">
-        <div className="py-6 md:py-12 flex flex-col items-center align-center gap-4">
+        <div className="py-6 md:py-12 flex flex-col items-center align-center gap-8">
           <h1 className="text-4xl md:text-7xl font-semibold">Articles</h1>
-          <p className="text-center md:text-lg">
+          <p className="text-center md:text-2xl">
             Explorez des sujets autour du développement web, des dernières
             technologies, du SEO et bien d'autres.
           </p>
