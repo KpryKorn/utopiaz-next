@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="text-center my-6 md:my-12">
       <div className="sm:flex sm:items-center sm:justify-between">
-        <Logo />
+        <Logo brandName={false} spin={true} />
         <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-400 sm:mb-0">
           <li>
             <Link
