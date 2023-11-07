@@ -65,8 +65,8 @@ export async function getLastArticles(): Promise<Article[]> {
 export async function getCategories(): Promise<Article[]> {
   try {
     const categories = await client.fetch(
-      groq`*[_type == "categorie"] | order(_createdAt desc){
-        "categories": titre,
+      groq`*[_type == "categorie"] | order(_createdAt asc){
+        titre,
       }`
     );
     return categories;
