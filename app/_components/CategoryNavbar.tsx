@@ -28,7 +28,10 @@ export default async function CategoryNavbar() {
         </li>
         {categories.map((category) => {
           return (
-            <li className="radio-label flex items-center justify-center border border-slate-600 rounded-full cursor-pointer">
+            <li
+              key={category.titre}
+              className="radio-label flex items-center justify-center border border-slate-600 rounded-full cursor-pointer"
+            >
               <input
                 type="radio"
                 name="category"
