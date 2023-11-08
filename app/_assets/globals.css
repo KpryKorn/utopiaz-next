@@ -12,12 +12,6 @@ img {
   max-width: 100%;
 }
 
-@layer components {
-  .radio-label:has(input:checked) {
-    @apply bg-slate-800;
-  }
-}
-
 /* CMS STYLING */
 
 div.sanity-container ul {
