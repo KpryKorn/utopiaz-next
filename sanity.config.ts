@@ -1,6 +1,7 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
 import schemas from "./sanity/schemas";
+import { visionTool } from "@sanity/vision";
 
 const config = defineConfig({
   projectId: "17n9vsyq",
@@ -8,7 +9,7 @@ const config = defineConfig({
   title: "Utopiaz",
   apiVersion: "2023-10-25",
   basePath: "/admin",
-  plugins: [deskTool()],
+  plugins: [deskTool(), visionTool()],
   schema: {
     types: schemas,
   },
