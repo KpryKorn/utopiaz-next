@@ -1,5 +1,5 @@
-// TODO: créer redirection vers blog page
+import { permanentRedirect } from "next/navigation";
 
-export default function Page() {
-  return <div>redirection vers "/blog"</div>;
+export default async function Page() {
+  permanentRedirect("/blog");
 }
