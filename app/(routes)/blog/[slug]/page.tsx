@@ -74,7 +74,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
             <figure className="flex gap-2 justify-between items-center">
               <Image
-                src={article?.auteurImg}
+                src={article!.auteurImg}
                 width={300}
                 height={300}
                 alt={`Photo de profil de ${article?.auteur}`}
@@ -97,8 +97,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
           <figure className="flex lg:flex-1 items-center justify-end">
             <Image
-              src={article?.image}
-              alt={article?.alt}
+              src={article!.image}
+              alt={article!.alt}
               loading="eager"
               width={1500}
               height={1500}
@@ -109,7 +109,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
         <div className="flex flex-col gap-4 sanity-container">
           <PortableText
-            value={article?.contenu}
+            value={article!.contenu}
             components={{
               types: {
                 image: imageComponent,
