@@ -68,8 +68,8 @@ const article = {
       name: "categories",
       title: "Catégories",
       group: "details",
-      type: "array",
-      of: [{ type: "reference", to: { type: "categorie" } }],
+      type: "reference",
+      to: { type: "categorie" },
     },
     {
       name: "contenu",

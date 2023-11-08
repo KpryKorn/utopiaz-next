@@ -25,7 +25,7 @@ export async function getArticles(): Promise<Article[]> {
         "auteurImg": auteur->image.asset->url,
         "image": image.asset->url,
         "alt": image.alt,
-        "categories": categories[]->titre,
+        "categories": categories->titre,
         contenu
     }`,
       revalidatePath("/") // revalidate the data when the page is loaded/refreshed
@@ -51,7 +51,7 @@ export async function getLastArticles(): Promise<Article[]> {
         "auteurImg": auteur->image.asset->url,
         "image": image.asset->url,
         "alt": image.alt,
-        "categories": categories[]->titre,
+        "categories": categories->titre,
         contenu
     }`,
       revalidatePath("/") // revalidate the data when the page is loaded/refreshed
@@ -73,6 +73,32 @@ export async function getCategories(): Promise<Categorie[]> {
       }`
     );
     return categories;
+  } catch (error) {
+    console.error("!! Problèmes lors de la résolution des articles:", error);
+    return [];
+  }
+}
+
+export async function getBackendArticles(): Promise<Article[]> {
+  try {
+    const articles = await client.fetch(
+      groq`*[_type == "article" && categories->titre == "Backend"] | order(_createdAt desc){
+        _id,
+        _createdAt,
+        _updatedAt,
+        titre,
+        "slug": slug.current,
+        resume,
+        "auteur": auteur->nom,
+        "auteurImg": auteur->image.asset->url,
+        "image": image.asset->url,
+        "alt": image.alt,
+        "categories": categories->titre,
+        contenu
+    }`,
+      revalidatePath("/")
+    );
+    return articles;
   } catch (error) {
     console.error("!! Problèmes lors de la résolution des articles:", error);
     return [];
