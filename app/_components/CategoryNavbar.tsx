@@ -7,6 +7,14 @@ export default async function CategoryNavbar() {
   return (
     <nav className="my-6 md-my-12 py-4 border-t border-b border-gray-400">
       <ul className="flex items-center justify-center gap-2 text-sm">
+        <li className="flex items-center justify-center rounded-full cursor-pointer">
+          <Link
+            href={"/blog"}
+            className="px-3.5 py-1.5 bg-slate-900 border border-slate-600 rounded-full hover:bg-slate-700 transition-colors"
+          >
+            Tous
+          </Link>
+        </li>
         {categories.map((category) => {
           return (
             <li
@@ -15,7 +23,7 @@ export default async function CategoryNavbar() {
             >
               <Link
                 href={`/category/${category.slug}`}
-                className="px-3.5 py-1.5 bg-slate-800 border border-slate-600 rounded-full hover:bg-slate-700 transition-colors"
+                className="px-3.5 py-1.5 bg-slate-900 border border-slate-600 rounded-full hover:bg-slate-700 transition-colors"
               >
                 {category.titre}
               </Link>
