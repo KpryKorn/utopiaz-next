@@ -1,4 +1,5 @@
-import { getBackendArticles, getCategories } from "@/sanity/sanity-utils";
+import CategoryView from "@/app/_components/CategoryView";
+import { getCategories } from "@/sanity/sanity-utils";
 
 export const dynamicParams = false;
 
@@ -16,22 +17,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
     (category) => category.slug === params.slug
   );
 
-  const backendArticles = await getBackendArticles();
-
   return (
     <>
       <div>Slug: {params.slug}</div>
       <p>{categorie!.description}</p>
-      <div>
-        {backendArticles.map((article) => {
-          return (
-            <div key={article._id}>
-              <h2>{article.titre}</h2>
-              <p>{article.resume}</p>
-            </div>
-          );
-        })}
-      </div>
+      <CategoryView slug={params.slug} />
     </>
   );
 }
