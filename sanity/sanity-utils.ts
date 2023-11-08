@@ -1,4 +1,5 @@
 import { Article } from "@/types/Article";
+import { Categorie } from "@/types/Categorie";
 import { createClient, groq } from "next-sanity";
 import { revalidatePath } from "next/cache";
 
@@ -62,11 +63,12 @@ export async function getLastArticles(): Promise<Article[]> {
   }
 }
 
-export async function getCategories(): Promise<Article[]> {
+export async function getCategories(): Promise<Categorie[]> {
   try {
     const categories = await client.fetch(
       groq`*[_type == "categorie"] | order(_createdAt asc){
         titre,
+        description,
         "slug": slug.current,
       }`
     );
